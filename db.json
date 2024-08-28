@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "32ad",
+      "name": "Егор",
+      "login": "admin",
+      "password": "123",
+      "role": "admin",
+      "posts": []
+    },
+    {
+      "id": "1caf",
+      "name": "Юзверь",
+      "login": "user",
+      "password": "123",
+      "role": "user",
+      "posts": []
+    }
+  ],
+  "tags": [
+    {
+      "id": "2",
+      "name": "Компьютерные игры",
+      "post_amount": 0
+    },
+    {
+      "name": "Животные",
+      "id": "c9c5",
+      "post_amount": 0
+    }
+  ],
+  "posts": [],
+  "comments": []
+}

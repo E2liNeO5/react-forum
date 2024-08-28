@@ -1,0 +1,58 @@
+@import '../../../variables.scss';
+
+.container {
+  display: none;
+  background-color: $foreground-color;
+  color: $primary-color;
+  border: 2px solid rgba($primary-color, .5);
+  padding: 2em;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 9;
+
+  &.show {
+    display: block;
+    animation-name: hint_appear;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+  }
+
+  &.error {
+    border-color: $secondary-color-dark;
+    color: $secondary-color;
+  }
+
+  &.success {
+    border-color: $success_color;
+    color: $success_color;
+  }
+
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: $secondary-color-dark;
+    transition: .2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+@keyframes hint_appear {
+  50% {
+    bottom: 100px;
+    opacity: 1;
+    transform: translateX(-50%) scale(.9);
+  }
+  100% {
+    bottom: 100px;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}

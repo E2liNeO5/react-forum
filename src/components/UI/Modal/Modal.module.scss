@@ -1,0 +1,60 @@
+@import '../../../variables.scss';
+
+.wrapper {
+  display: none;
+
+  &.show {
+    display: block;
+
+    .container {
+      animation-name: modal_appear;
+      animation-duration: .3s;
+      animation-fill-mode: forwards;
+  
+      @keyframes modal_appear {
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  .background {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 10;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    inset: 0;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: auto;
+    padding: 25px;
+    background-color: $foreground-color;
+    border: 3px solid $secondary-color-dark;
+    text-align: center;
+    z-index: 11;
+
+    h2 {
+      color: $secondary-color;
+    }
+
+    .buttons {
+      align-self: flex-end;
+
+      button {
+        margin-left: 1em;
+      }
+    }
+  }
+}

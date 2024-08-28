@@ -1,0 +1,45 @@
+@import '../../../variables.scss';
+
+.tag_item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: .25em .5em;
+  background-color: $background-color;
+  border: 2px solid $secondary-color;
+
+  .tag_edit {
+    width: fit-content;
+    border: none;
+    margin: 0;
+  }
+
+  .tag_actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+
+    .edit {
+      margin-right: 5px;
+      padding: 2px;
+      background-color: rgba($success-color, .5);
+      transition: .2s;
+      cursor: pointer;
+  
+      &:hover  {
+        background-color: $success-color;
+      }
+    }
+
+    .delete {
+      background-color: $secondary-color-dark;
+      transition: .2s;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}

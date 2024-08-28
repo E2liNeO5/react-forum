@@ -1,0 +1,68 @@
+@import '../../../variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em;
+
+  .logo {
+    font-size: 48px;
+    isolation: isolate;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:active span {
+      transform: scale(2);
+    }
+
+    span {
+      position: absolute;
+      top: 6px;
+      left: 25px;
+      background-color: $secondary-color;
+      width: 60%;
+      height: 80%;
+      transform: skew(45deg);
+      transition: .5s;
+      z-index: -1;
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    text-align: center;
+
+    .link {
+      text-decoration: none;
+      position: relative;
+      transition: .2s;
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        display: block;
+        height: 3px;
+        background-color: $primary-color;
+        width: 0%;
+        position: absolute;
+        bottom: -5px;
+        transition: .3s;
+      }
+
+      &:hover,
+      &.active {
+        color: $secondary-color;
+      }
+
+      &:hover:before,
+      &.active:before {
+        width: 100%;
+      }
+    }
+  }
+}

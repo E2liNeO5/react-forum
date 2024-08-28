@@ -1,0 +1,44 @@
+@import '../../../variables.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  list-style: none;
+  position: sticky;
+  top: 0;
+  background-color: $foreground-color;
+  z-index: 9;
+
+  li {
+    padding: .25em .5em;
+    margin: .5em;
+    border: 3px solid $secondary-color-dark;
+    transition: .2s;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $secondary-color;
+    }
+    &.selected {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.search_container {
+  display: flex;
+  align-items: center;
+
+  .search_reset {
+    background-color: $secondary-color-dark;
+    margin-left: 5px;
+    transition: .2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}

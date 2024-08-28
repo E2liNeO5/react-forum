@@ -1,0 +1,28 @@
+@import '../../../variables.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    margin-top: 10px;
+  }
+
+  .input_error {
+    font-size: .75em;
+    margin-top: 10px;
+    color: $secondary-color;
+  }
+
+  .hint {
+    margin-top: 1em;
+    color: $secondary-color;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
