@@ -10,7 +10,6 @@ import { DividingLine } from '../DividingLine/DividingLine'
 import { CreatePost } from '../CreatePost/CreatePost'
 import { ErrorPage } from '../ErrorPage'
 import { CreateTag } from '../CreateTag/CreateTag'
-import { tagListService } from '../../../services/taglist.service'
 
 export function Profile() {
   const {currentUser} = useAppContext()

@@ -1,0 +1,20 @@
+@import '../../../variables.scss';
+
+.form {
+  margin-top: 1em;
+
+  .input_error {
+    font-size: .75em;
+    color: $secondary_color;
+    margin-top: 1em;
+  }
+
+  .form_block {
+    margin-bottom: 1em;
+
+    textarea {
+      width: 95%;
+      min-height: 200px;
+    }
+  }
+}

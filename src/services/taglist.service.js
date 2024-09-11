@@ -6,7 +6,6 @@ class TagList {
   async getTags() {
     try {
       const {data} = await axios.get(`${this.url}?_sort=name`)
-
       return data || []
     } catch (e) {
       console.warn(e)

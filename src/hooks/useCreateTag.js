@@ -12,7 +12,7 @@ export function useCreateTag(reset) {
     onSuccess() {
       showHint('Тэг успешно добавлен!', 'success')
       reset()
-      queryClient.refetchQueries('admin tags')
+      queryClient.refetchQueries('get tags')
     },
     onError(error) {
       showHint(error.message, 'error')

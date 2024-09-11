@@ -74,13 +74,13 @@ body {
   }
 }
 
-input {
+input, textarea {
   outline: none;
   background-color: #1a1925;
   border: 3px solid $secondary-color-dark;
   padding: .25em .5em;
-  margin-left: 7px;
   width: 200px;
+  resize: none;
 
   &:focus {
     border-color: $secondary-color;
@@ -99,5 +99,95 @@ button {
   &:hover {
     border-color: $secondary-color;
     background-color: $secondary-color;
+  }
+}
+
+.custom_select__control {
+  background-color: $background_color !important;
+  width: 95% !important;
+  border: 3px solid $secondary-color-dark !important;
+  border-radius: 0 !important;
+  margin-bottom: 10px !important;
+  box-shadow: none !important;
+
+  &--menu-is-open {
+    border-color: $secondary-color !important;
+  }
+
+  .custom_select__indicators {
+    .custom_select__indicator-separator {
+      background-color: $secondary-color-dark !important;
+    }
+
+    .custom_select__dropdown-indicator {
+      cursor: pointer;
+      color: $secondary-color-dark !important;
+
+      &:hover path {
+        color: $secondary-color !important;
+      }
+    }
+
+    .custom_select__clear-indicator {
+      transition: .2s !important;
+      cursor: pointer;
+
+      &:hover path {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .custom_select__input-container {
+    color: $primary-color !important;
+  }
+
+  .custom_select__multi-value {
+    background-color: $secondary-color-dark !important;
+
+    &__label {
+      color: $primary-color !important;
+    }
+
+    &__remove {
+      cursor: pointer;
+
+      path {
+        transition: .2s;
+      }
+
+      &:hover {
+        background-color: transparent !important;
+      }
+
+      &:hover path {
+        color: $secondary-color !important;
+      }
+    }
+  }
+}
+
+.custom_select__menu {
+  width: 95% !important;
+  background-color: $secondary_color !important;
+  width: 95% !important;
+  border: 3px solid $secondary-color-dark !important;
+  border-radius: 0 !important;
+
+  &-notice--no-options {
+    color: $primary-color !important;
+  }
+
+  .custom_select__option {
+    width: auto !important;
+    margin: 0 5px !important;
+    cursor: pointer;
+
+    &--is-focused,
+    &:active {
+      background-color: $secondary-color-dark;
+      width: auto !important;
+      margin: 0 5px !important;
+    }
   }
 }

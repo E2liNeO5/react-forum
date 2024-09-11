@@ -1,11 +1,15 @@
 import { createContext, useState, useEffect } from "react"
 import { storageService } from "../../services/storage.service"
+import { useQuery } from "@tanstack/react-query"
+import { tagListService } from "../../services/taglist.service"
 
 export const AppContext = createContext({
   currentUser: false,
   setCurrentUser: null,
   modalOptions: {},
-  hintOptions: {}
+  hintOptions: {},
+  tags: {},
+  setTags: null
 })
 
 export const AppProvider = ({children}) => {
@@ -27,12 +31,23 @@ export const AppProvider = ({children}) => {
     onClose: () => {}
   })
 
+  const [tags, setTags] = useState({
+    isLoading: true
+  })
+  const tags_data = useQuery({
+    queryKey: ['get tags'],
+    queryFn: () => tagListService.getTags(),
+  })
+  
   useEffect(() => {
     if (currentUser)
       storageService.set('currentUser', currentUser)
     else
       storageService.delete('currentUser')
-  }, [currentUser]);
+
+    if(tags_data && tags_data.data && !tags_data.isLoading)
+      setTags(tags_data)
+  }, [currentUser, tags_data.data]);
 
   return (
     <AppContext.Provider value={{
@@ -41,7 +56,9 @@ export const AppProvider = ({children}) => {
       modalOptions,
       setModalOptions,
       hintOptions,
-      setHintOptions
+      setHintOptions,
+      tags,
+      setTags
     }}>
       {children}
     </AppContext.Provider>

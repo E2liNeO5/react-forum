@@ -1,1 +1,40 @@
 @import '../../../variables.scss';
+
+.toggle {
+  width: 90%;
+  border-top: 1px solid $secondary_color_dark;
+  padding-top: 10px;
+  user-select: none;
+  transition: .2s;
+  cursor: pointer;
+
+  &:hover {
+    color: $secondary_color;
+  }
+
+  .toggle_sign {
+    transform: rotateZ(180deg);
+    margin-left: 5px;
+    transition: .2s;
+
+    &.show {
+      transform: rotateZ(0deg);
+    }
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-bottom: 1em;
+  width: 100%;
+  transition: .2s;
+
+  &.show {
+    grid-template-rows: 1fr;
+  }
+
+  > div {
+    overflow: hidden;
+  }
+}

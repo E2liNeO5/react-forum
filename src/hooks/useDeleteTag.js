@@ -8,7 +8,7 @@ export function useDeleteTag() {
     mutationKey: ['delete tag'],
     mutationFn: id => tagListService.deleteTag(id),
     onSuccess() {
-      queryClient.refetchQueries('admin tags')
+      queryClient.refetchQueries('get tags')
     }
   })
 

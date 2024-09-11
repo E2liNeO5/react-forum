@@ -8,7 +8,7 @@ export function useEditTag() {
     mutationKey: ['edit tag'],
     mutationFn: (data) => tagListService.editTag(data),
     onSuccess() {
-      queryClient.refetchQueries('admin tags')
+      queryClient.refetchQueries('get tags')
     }
   })
 

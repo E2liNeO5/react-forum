@@ -19,7 +19,7 @@ export function PostById() {
   return (
     <>
       {isLoading ? <Loading /> :
-       isError ? <ErrorPage text="Oshibka" /> : (
+       isError ? <ErrorPage text={error.message} /> : (
         <div className='container'>
           <div className={styles.container}>
             <div className={styles.image}>

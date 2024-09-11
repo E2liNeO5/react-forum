@@ -5,15 +5,11 @@ import form_styles from '../Forms/Forms.module.scss'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useCreateTag } from '../../../hooks/useCreateTag'
-import { useQuery } from '@tanstack/react-query'
 import { AdminTag } from '../AdminTag/AdminTag'
-import { tagListService } from '../../../services/taglist.service'
+import { useAppContext } from '../../../hooks/useAppContext'
 
 export function CreateTag() {
-  const tag_data = useQuery({
-    queryKey: ['admin tags'],
-    queryFn: () => tagListService.getTags(),
-  })
+  const {tags} = useAppContext()
 
   const [isShow, setIsShow] = useState(false)
   const [search, setSearch] = useState('')
@@ -22,7 +18,7 @@ export function CreateTag() {
   const {mutate} = useCreateTag(reset)
 
   return (
-    <div>
+    <>
       <div className={styles.toggle} onClick={() => setIsShow(prev => !prev)}>
         Настройка тэгов
         <Triangle
@@ -59,7 +55,7 @@ export function CreateTag() {
             { search.length > 0 && <X className={taglist_styles.search_reset} onClick={() => setSearch('')} /> }
           </div>
           <div className={styles.tags_container}>
-            { !tag_data.isLoading && !tag_data.isError && tag_data.data
+            { !tags.isLoading && !tags.isError && tags.data
                 .filter(tag => tag.name.toLowerCase().includes(search))
                 .map(tag => {
                   return (
@@ -69,6 +65,6 @@ export function CreateTag() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

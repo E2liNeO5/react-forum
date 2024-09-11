@@ -84,6 +84,21 @@ class Posts {
       return posts.data
     } catch (e) {
       console.warn(e)
+      throw new Error(e.message)
+    }
+  }
+
+  async createPost({title, text, tags, author, create_date}) {
+    try {
+      return await axios.post(`${this.url_post}`, {
+        title, text, author, create_date,
+        tags: tags.map(tag => tag.value),
+        image: '',
+        comments: []
+      })
+    } catch (e) {
+      console.warn(e)
+      throw new Error(e.message)
     }
   }
 }
